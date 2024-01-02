@@ -35,10 +35,8 @@ class ConferenceResource extends Resource
                     ->hintIcon('heroicon-o-rectangle-stack')
                     ->required()
 //                    ->markAsRequired(false)
-                    ->maxLength(255),
-                Forms\Components\Toggle::make('is_publish')
-                    ->default(true)
-                    ->required(),
+                    ->maxLength(60),
+
                 Forms\Components\TextInput::make('name')
                     ->label('Conference Name')
                     ->helperText('The name of the conference.')
@@ -47,22 +45,32 @@ class ConferenceResource extends Resource
                     ->required()
 //                    ->markAsRequired(false)
                     ->maxLength(255),
-                Forms\Components\TextInput::make('description')
-                    ->required()
-                    ->maxLength(255),
+
+                Forms\Components\MarkdownEditor::make('description')
+                    ->helperText('Hello')
+                    ->required(),
+
+                Forms\Components\Select::make('status')
+                    ->options([
+                        'default'=>'Default',
+                        'published'=>'Published',
+                        'archived'=>'Archived',
+                    ])
+                    ->required(),
                 Forms\Components\DateTimePicker::make('start_date')
                     ->native(false)
                     ->required(),
                 Forms\Components\DateTimePicker::make('end_date')
                     ->required(),
-                Forms\Components\TextInput::make('status')
-                    ->required()
-                    ->maxLength(255),
                 Forms\Components\TextInput::make('region')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\Select::make('venue_id')
                     ->relationship('venue', 'name'),
+
+                Forms\Components\Toggle::make('is_publish')
+                    ->default(true)
+                    ->required(),
             ]);
     }
 
