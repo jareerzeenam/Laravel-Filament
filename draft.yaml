@@ -6,7 +6,7 @@ models:
     end_date: datetime
     status: string
     region: string
-    venue_id: unsignedInteger
+    venue_id: unsignedInteger nullable
     relationships:
       belongsTo: Venue
       belongsToMany: Speaker, Talk
@@ -29,7 +29,7 @@ models:
   Talk:
     name: string
     abstract: text
-    twitter_handle: string
+    speaker_id: unsignedInteger
     relationships:
       belongsTo: Speaker
       belongsToMany: Conference
