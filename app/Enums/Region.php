@@ -8,8 +8,8 @@ enum Region: string
     case EU = 'EU';
     case GB = 'GB';
     case SL = 'Sri Lanka';
-    case AU= 'AU';
-    case India = 'India';
+    case AU = 'AU';
+    case IN = 'India';
     case Online = 'Online';
 
 }
