@@ -25,75 +25,7 @@ class ConferenceResource extends Resource
     public static function form(Form $form): Form
     {
         return $form
-            ->schema([
-//                Forms\Components\TextInput::make('website')
-//                    ->url()
-//                    ->label('Website URL')
-//                    ->prefix('https://')
-//                    ->default('hello')
-//                    ->prefixIcon('heroicon-o-globe-alt')
-//                    ->suffix('.com')
-//                    ->helperText('The name of the conference.')
-//                    ->hint('Here is the hint.')
-//                    ->hintIcon('heroicon-o-rectangle-stack')
-//                    ->required()
-////                    ->markAsRequired(false)
-//                    ->maxLength(60),
-
-                Forms\Components\TextInput::make('name')
-                    ->columnSpanFull()
-                    ->label('Conference Name')
-                    ->helperText('The name of the conference.')
-                    ->hint('Here is the hint.')
-                    ->hintIcon('heroicon-o-rectangle-stack')
-                    ->required()
-//                    ->markAsRequired(false)
-                    ->maxLength(255),
-
-                Forms\Components\MarkdownEditor::make('description')
-                    ->columnSpanFull()
-                    ->helperText('Hello')
-                    ->required(),
-
-                Forms\Components\DateTimePicker::make('start_date')
-                    ->native(false)
-                    ->required(),
-
-                Forms\Components\DateTimePicker::make('end_date')
-                    ->required(),
-
-                Forms\Components\Select::make('region')
-                    ->live()
-                    ->enum(Region::class)
-                    ->options(Region::class),
-
-                Forms\Components\Select::make('venue_id')
-                    ->searchable()
-                    ->preload()
-                    ->createOptionForm(Venue::getForm())
-                    ->editOptionForm(Venue::getForm())
-                    ->relationship('venue', 'name', modifyQueryUsing: function (Builder $query, Forms\Get $get){
-                        return $query->where('region', $get('region'));
-                    }),
-                Forms\Components\Select::make('status')
-                    ->options([
-                        'default'=>'Default',
-                        'published'=>'Published',
-                        'archived'=>'Archived',
-                    ])
-                    ->required(),
-
-
-                Forms\Components\Toggle::make('is_publish')
-                    ->columnSpanFull()
-                    ->default(false)
-                    ->required(),
-
-                Forms\Components\CheckboxList::make('speakers')
-                ->relationship('speakers','name')
-                ->options(Speaker::all()->pluck('name','id'))
-                ->required()
-            ]);
+            ->schema(Conference::getForm());
     }
 
     public static function table(Table $table): Table
