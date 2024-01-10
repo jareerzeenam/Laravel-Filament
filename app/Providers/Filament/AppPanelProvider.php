@@ -23,6 +23,8 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 class AppPanelProvider extends PanelProvider
 {
+    protected static string $routePath = 'finance';
+
     public function panel(Panel $panel): Panel
     {
         return $panel
