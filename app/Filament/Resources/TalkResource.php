@@ -157,7 +157,7 @@ class TalkResource extends Resource
                     ->tooltip('This will export all the visible and filtered data.')
                 ->action(function ($livewire){
 
-                    dd($livewire->getFilteredTbleQuery());
+                    dd($livewire->getFilteredTableQuery()->get());
                 })
             ]);
     }

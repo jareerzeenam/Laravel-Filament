@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -87,7 +88,7 @@ class Speaker extends Model
                     ->email()
                     ->required()
                     ->maxLength(255),
-                Textarea::make('bio')
+                RichEditor::make('bio')
                     ->required()
                     ->maxLength(65535)
                     ->columnSpanFull(),
