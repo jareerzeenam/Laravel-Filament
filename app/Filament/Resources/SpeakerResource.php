@@ -98,8 +98,7 @@ class SpeakerResource extends Resource
                                     return 'success';
                                 }
                                 return 'primary';
-                            }),
-                    ]),
+                            }),                    ]),
                 ]),
 
                 Section::make('Other Information')
@@ -117,7 +116,8 @@ class SpeakerResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RelationManagers\TalksRelationManager::class,
+//            RelationManagers\TalksRelationManager::class,
         ];
     }
 
