@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email');
             $table->integer('ticket_cost');
+            $table->boolean('is_paid');
             $table->foreignIdFor(\App\Models\Conference::class);
             $table->timestamps();
         });

@@ -17,11 +17,13 @@ class AttendeeFactory extends Factory
      */
     public function definition(): array
     {
+        $randomConferenceId = Conference::inRandomOrder()->value('id');
         return [
             'name' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
             'ticket_cost' => $this->faker->numberBetween(100, 1000),
             'is_paid' => $this->faker->boolean,
+            'conference_id' => $randomConferenceId,
         ];
     }
 

@@ -21,10 +21,11 @@ class TalkFactory extends Factory
      */
     public function definition(): array
     {
+        $randomSpeakerId = Speaker::inRandomOrder()->value('id');
         return [
             'name' => $this->faker->name(),
             'abstract' => $this->faker->text(),
-            'speaker_id' => Speaker::factory(),
+            'speaker_id' => $randomSpeakerId,
         ];
     }
 }

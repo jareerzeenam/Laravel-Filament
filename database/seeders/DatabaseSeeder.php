@@ -3,7 +3,10 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Attendee;
+use App\Models\Conference;
 use App\Models\Speaker;
+use App\Models\Talk;
 use App\Models\User;
 use App\Models\Venue;
 use Illuminate\Database\Seeder;
@@ -28,7 +31,10 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt(123)
         ]);
 
-        Venue::factory(200)->create();
+        Venue::factory(20)->create();
+        Conference::factory(10)->create();
         Speaker::factory(20)->create();
+        Talk::factory(30)->create();
+        Attendee::factory(10)->create();
     }
 }
