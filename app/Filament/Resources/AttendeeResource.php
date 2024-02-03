@@ -34,7 +34,7 @@ class AttendeeResource extends Resource
                     ->maxLength(255),
                 Forms\Components\TextInput::make('ticket_cost')
                     ->required()
-                    ->numeric(),
+                    ->prefix('$'),
                 Forms\Components\Toggle::make('is_paid')
                     ->required(),
                 Forms\Components\Select::make('conference_id')
